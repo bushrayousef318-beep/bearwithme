@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bear with Me | Beu Chatbot</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar glass">
+      <a class="brand" href="index.html"><span class="bear-icon">🐻‍❄️</span><h1 data-i18n="beuTitle">Beu Chatbot</h1></a>
+      <div class="top-actions">
+        <button id="translateBtn" class="btn btn-secondary" data-i18n="translateBtn">العربية</button>
+        <button id="themeBtn" class="btn btn-secondary" data-i18n="darkBtn">Dark Mode</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="glass page-block">
+        <h2 data-i18n="chatTitle">Talk to Beu, your polar bear support buddy</h2>
+        <p data-i18n="chatIntro">Beu listens with care, asks follow-up questions, and suggests helpful coping steps. If there is immediate danger, contact emergency help now.</p>
+        <div id="chatBox" class="chat-box"></div>
+        <form id="chatForm" class="chat-form">
+          <input id="chatInput" type="text" required data-i18n-ph="chatPh" placeholder="Type what you're feeling..." />
+          <button class="btn" type="submit" data-i18n="sendBtn">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

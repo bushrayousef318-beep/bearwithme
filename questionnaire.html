@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bear with Me | Questionnaire</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar glass">
+      <a class="brand" href="index.html">
+        <span class="bear-icon">🐻‍❄️</span>
+        <div>
+          <h1 data-i18n="brandTitle">Bear with Me</h1>
+          <p data-i18n="brandTag">A gentle space for teens in Jordan</p>
+        </div>
+      </a>
+      <div class="top-actions">
+        <button id="translateBtn" class="btn btn-secondary" data-i18n="translateBtn">العربية</button>
+        <button id="themeBtn" class="btn btn-secondary" data-i18n="darkBtn">Dark Mode</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="glass page-block">
+        <h2 data-i18n="questionnaireTitle">Wellbeing Intake</h2>
+        <p data-i18n="questionnaireIntro">
+          Answer honestly. This check-in helps personalize your support path. Your entries are stored on this device only.
+        </p>
+        <form id="intakeForm" class="stack">
+          <label data-i18n="qAge">How old are you?</label>
+          <input type="number" min="12" max="21" id="age" required />
+
+          <label data-i18n="qStruggles">What are you struggling with right now?</label>
+          <select id="struggle" required>
+            <option value="" data-i18n="pickOne">Pick one</option>
+            <option value="school" data-i18n="optSchool">School pressure</option>
+            <option value="bullying" data-i18n="optBullying">Bullying</option>
+            <option value="family" data-i18n="optFamily">Abusive or harsh home environment</option>
+            <option value="anxiety" data-i18n="optAnxiety">Anxiety / panic</option>
+            <option value="sadness" data-i18n="optSadness">Sadness / hopelessness</option>
+            <option value="other" data-i18n="optOther">Other</option>
+          </select>
+
+          <label data-i18n="qEnergy">How is your energy today? (1 low - 5 high)</label>
+          <input type="range" id="energy" min="1" max="5" value="3" />
+
+          <label data-i18n="qSleep">How many hours did you sleep last night?</label>
+          <input type="number" min="0" max="14" id="sleep" required />
+
+          <label data-i18n="qSafety">Do you feel safe today?</label>
+          <select id="safety" required>
+            <option value="" data-i18n="pickOne">Pick one</option>
+            <option value="yes" data-i18n="safeYes">Yes, mostly</option>
+            <option value="sometimes" data-i18n="safeSometimes">Sometimes</option>
+            <option value="no" data-i18n="safeNo">No, not really</option>
+          </select>
+
+          <label data-i18n="qTrusted">Is there a trusted adult you can contact?</label>
+          <select id="trusted" required>
+            <option value="" data-i18n="pickOne">Pick one</option>
+            <option value="yes" data-i18n="safeYes">Yes, mostly</option>
+            <option value="no" data-i18n="safeNo">No, not really</option>
+          </select>
+
+          <label data-i18n="qGoal">What do you need most today?</label>
+          <textarea id="goal" rows="4" required data-i18n-ph="goalPh" placeholder="Write here..."></textarea>
+
+          <button type="submit" class="btn" data-i18n="submitCheckin">Save Check-In</button>
+        </form>
+        <div id="intakeResult" class="result-box hidden"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

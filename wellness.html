@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bear with Me | Wellness Tools</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar glass">
+      <a class="brand" href="index.html"><span class="bear-icon">🐻‍❄️</span><h1 data-i18n="wellnessTitle">Breathing & Daily Checklist</h1></a>
+      <div class="top-actions">
+        <button id="translateBtn" class="btn btn-secondary" data-i18n="translateBtn">العربية</button>
+        <button id="themeBtn" class="btn btn-secondary" data-i18n="darkBtn">Dark Mode</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="glass page-block">
+        <h2 data-i18n="breathingTitle">4-4-6 Breathing Exercise</h2>
+        <p id="breathingGuide" data-i18n="breathingReady">Press start and follow the rhythm.</p>
+        <div class="breathe-circle" id="breatheCircle"></div>
+        <div class="inline-actions">
+          <button id="startBreathingBtn" class="btn" data-i18n="startBtn">Start</button>
+          <button id="stopBreathingBtn" class="btn btn-secondary" data-i18n="stopBtn">Stop</button>
+        </div>
+      </section>
+
+      <section class="glass page-block">
+        <h3 data-i18n="checklistTitle">Daily Care Checklist</h3>
+        <ul id="dailyChecklist" class="checklist"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

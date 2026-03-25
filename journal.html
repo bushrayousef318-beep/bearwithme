@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bear with Me | Journal</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar glass">
+      <a class="brand" href="index.html"><span class="bear-icon">🐻‍❄️</span><h1 data-i18n="journalTitle">Journal & Safety Hub</h1></a>
+      <div class="top-actions">
+        <button id="translateBtn" class="btn btn-secondary" data-i18n="translateBtn">العربية</button>
+        <button id="themeBtn" class="btn btn-secondary" data-i18n="darkBtn">Dark Mode</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="glass page-block">
+        <h2 data-i18n="journalPrompt">Today, your story matters.</h2>
+        <p data-i18n="journalIntro">Write freely. You can enable Ghost Mode to hide text on screen while typing in public spaces.</p>
+        <div class="inline-actions">
+          <button id="ghostModeBtn" class="btn btn-secondary" data-i18n="ghostModeOn">Enable Ghost Mode</button>
+          <button id="saveJournalBtn" class="btn" data-i18n="saveEntry">Save Entry</button>
+        </div>
+        <textarea id="journalText" rows="12" data-i18n-ph="journalPh" placeholder="Write whatever is in your heart..."></textarea>
+        <p class="encouraging" data-i18n="encourageText">You survived every difficult day so far. That means you are stronger than your fear tells you.</p>
+      </section>
+
+      <section class="glass page-block">
+        <h3 data-i18n="hotlineTitle">Jordan Support Hotlines</h3>
+        <ul class="hotline-list">
+          <li><strong data-i18n="hotlineEmergency">Emergency:</strong> 911</li>
+          <li><strong data-i18n="hotlineFamily">Family Protection Department:</strong> 06 560 6999</li>
+          <li><strong data-i18n="hotlineNcw">National Council for Family Affairs:</strong> 065676005</li>
+          <li><strong data-i18n="hotlineNote">If you are in immediate danger, call emergency services now.</strong></li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
