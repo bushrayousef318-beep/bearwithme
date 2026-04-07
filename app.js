@@ -240,7 +240,7 @@ const checklistItems = {
     "حدد وقت نوم واضح وأبعد الهاتف 30 دقيقة قبل النوم.",
   ],
 };
-
+/*
 const libraryData = {
   en: [
     {
@@ -333,7 +333,7 @@ const beuReplies = {
       "أنا سامعك. احكِ لي أكثر، وسأبقى معك لنحدد خطوة عملية واحدة.",
   },
 };
-
+*/
 function getLang() {
   return localStorage.getItem("lang") || "en";
 }
@@ -489,7 +489,7 @@ function initIntakeForm() {
     }
   });
 }
-
+/*
 function appendMsg(text, type = "bot") {
   const box = $("chatBox");
   if (!box) return;
@@ -550,7 +550,56 @@ function initChat() {
     input.value = "";
   });
 }
+*/
+document.addEventListener('DOMContentLoaded', () => {
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+    const chatBox = document.getElementById('chatBox');
 
+    chatForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // منع الصفحة من عمل Refresh
+
+        const message = chatInput.value.trim();
+        if (!message) return;
+
+        // 1. أظهر رسالة المستخدم
+        appendMessage('user', message);
+        chatInput.value = '';
+
+        // 2. أظهر "جاري التفكير..." (اختياري)
+        const loadingId = 'loading-' + Date.now();
+        appendMessage('beu', '...', loadingId);
+
+        try {
+            // 3. الربط مع ملف الـ PHP
+            const response = await fetch('api.php?action=chat_with_beu', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: message })
+            });
+
+            const data = await response.json();
+            
+            // 4. استبدل "..." برد "بيو" الحقيقي
+            document.getElementById(loadingId).innerText = data.reply;
+
+        } catch (error) {
+            document.getElementById(loadingId).innerText = "عذراً يا صديقي، حدث خطأ في الاتصال.";
+        }
+    });
+
+    function appendMessage(sender, text, id = null) {
+        const msgDiv = document.createElement('div');
+        msgDiv.classList.add('message');
+        // تأكدي أن هذه الكلاسات موجودة في الـ CSS الخاص بكِ
+        msgDiv.classList.add(sender === 'user' ? 'user-message': 'beu-message');
+        if (id) msgDiv.id = id;
+        msgDiv.innerText = text;
+        
+        chatBox.appendChild(msgDiv);
+        chatBox.scrollTop = chatBox.scrollHeight; // سكرول تلقائي لأسفل
+    }
+});
 async function initJournal() {
   const ta = $("journalText");
   const saveBtn = $("saveJournalBtn");
