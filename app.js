@@ -489,6 +489,15 @@ function initIntakeForm() {
     }
   });
 }
+const chatBox = document.getElementById('chat-box');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
+sendBtn.addEventListener('click', sendMessage);
+
+// وكمان عشان يبعت لما نكبس Enter
+userInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+});
 /*
 function appendMsg(text, type = "bot") {
   const box = $("chatBox");
